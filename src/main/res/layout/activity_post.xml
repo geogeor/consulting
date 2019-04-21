@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_post"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvIsConnected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="#FF0000"
+        android:padding="5dp"
+        android:text="is connected? "
+        android:textColor="#FFF"
+        android:textSize="18dp" />
+
+
+    <EditText android:id="@+id/leaveID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Leave ID..." />
+
+    <EditText android:id="@+id/leaveCategoryID"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/leaveID"
+            android:hint="Leave Category..."/>
+
+    <EditText android:id="@+id/fromDate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Starting date..."/>
+
+    <EditText android:id="@+id/toDate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ending date..."/>
+
+    <EditText android:id="@+id/duration"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Duration..."/>
+
+
+
+    <Button
+        android:id="@+id/btnSend"
+        android:text="Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="send"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#000"
+        android:textSize="18dp"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="" />
+
+</LinearLayout>
