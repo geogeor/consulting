@@ -8,10 +8,10 @@ package="ots.hr">
 <application
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
-    android:label="View leaves"
+    android:label="Εφαρμογή"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
-    android:theme="@style/AppTheme">
+    android:theme="@style/AppTheme.NoActionBar">
     <activity android:name=".MainActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,13 @@ package="ots.hr">
         </intent-filter>
     </activity>
     <activity
-        android:label="Submit a leave"
+        android:theme="@style/AppTheme"
+        android:label="Προβολή αδειών"
+        android:name=".Activity_get" >
+    </activity>
+    <activity
+        android:label="Υποβολή άδειας"
+        android:theme="@style/AppTheme"
         android:name=".Activity_post" >
     </activity>
 </application>

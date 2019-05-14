@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedWriter;
@@ -33,19 +34,19 @@ public class Activity_post extends AppCompatActivity {
     TextView tvResult;
 
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_post);
-            leaveID = findViewById(R.id.leaveID);
-            leaveCategoryID = findViewById(R.id.leaveCategoryID);
-            fromDate = findViewById(R.id.fromDate);
-            toDate = findViewById(R.id.toDate);
-            duration = findViewById(R.id.duration);
-            tvIsConnected = findViewById(R.id.tvIsConnected);
-            tvResult = findViewById(R.id.tvResult);
-            checkNetworkConnection();
-        }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_post);
+        leaveID = findViewById(R.id.leaveID);
+        leaveCategoryID = findViewById(R.id.leaveCategoryID);
+        fromDate = findViewById(R.id.fromDate);
+        toDate = findViewById(R.id.toDate);
+        duration = findViewById(R.id.duration);
+        tvIsConnected = findViewById(R.id.tvIsConnected);
+        tvResult = findViewById(R.id.tvResult);
+        checkNetworkConnection();
+    }
 
     public boolean checkNetworkConnection() {
         ConnectivityManager connMgr = (ConnectivityManager)
@@ -133,14 +134,27 @@ public class Activity_post extends AppCompatActivity {
 
 
     private JSONObject buildJsonObject() throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.accumulate("id", leaveID.getText().toString());
-        jsonObject.accumulate("leaveCategory[0]",  leaveCategoryID.getText().toString());
-        jsonObject.accumulate("fromDate",  fromDate.getText().toString());
-        jsonObject.accumulate("toDate",  toDate.getText().toString());
-        jsonObject.accumulate("duration",  duration.getText().toString());
 
-        return jsonObject;
+        JSONObject json1= new JSONObject();
+        json1.put("id",  leaveCategoryID.getText().toString());
+        json1.put("description", "Κανονική");
+        json1.put("unit", "DAY");
+        json1.put("kind", "REGULAR");
+        json1.put("organization", 1);
+        //JSONArray jsonArray = new JSONArray();
+        //jsonArray.put(json1);
+        JSONObject json2 = new JSONObject();
+        json2.put("id", leaveID.getText().toString());
+        json2.put("leaveCategory",json1);
+        json2.put("organization",  1);
+        json2.put("created",  "2019-03-01T00:00:00");
+        json2.put("fromDate",  fromDate.getText().toString());
+        json2.put("toDate",  toDate.getText().toString());
+        json2.put("duration",  duration.getText().toString());
+        json2.put("status",  "SUBMITTED");
+
+
+        return json2;
     }
 
 
