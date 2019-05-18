@@ -4,4 +4,23 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="leave_category">Κατηγορία άδειας</string>
+
+    <string-array name="leave_categories">
+        <item>Κανονική</item>
+        <item>Ασθενείας</item>
+        <item>Ωριαία</item>
+        <item>Τιμητική</item>
+        <item>Γάμου</item>
+        <item>Αιμοδοτική</item>
+        <item>Συνδικαλιστική</item>
+        <item>Γονική (σε ώρες)</item>
+        <item>Άνευ αποδοχών</item>
+        <item>Εκλογική</item>
+        <item>Άδεια λόγω θανάτου</item>
+        <item>Γέννησης παιδιού</item>
+        <item>Μειωμένο ωράριο</item>
+        <item>Ειδική γονική</item>
+    </string-array>
+
 </resources>

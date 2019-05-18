@@ -24,6 +24,7 @@ public class FetchLeavesTask extends AsyncTask<String,Void,ArrayList<Leave>> {
     private final String LOG_TAG = FetchLeavesTask.class.getSimpleName();
     private LeavesAdapter leavesAdapter;
     public static final String SERVICE_BASE_URL = "http://demo.ots.gr/openonehr/api/1/leave/2019/6";
+    //public String[][] ldata;
 
     public FetchLeavesTask(LeavesAdapter leavesAdapter){
         this.leavesAdapter = leavesAdapter;
@@ -47,12 +48,58 @@ public class FetchLeavesTask extends AsyncTask<String,Void,ArrayList<Leave>> {
             }
             Log.d(LOG_TAG, "Leaves Fetching Complete. " + leaves.size() + "leaves inserted");
             return leaves;
+
         }catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage(), e);
             e.printStackTrace();
             return leaves;
         }
     }
+
+  /*  public String[][] getStrings(String responseJsonStr) throws JSONException {
+        JSONArray leavesArray = new JSONArray(responseJsonStr);
+        String[][] leaves = new String[leavesArray.length()][12];
+        try{
+
+            //JSONArray leavesArray = response.getJSONArray("");
+            for(int i=0; i<leavesArray.length(); i++) {
+                    JSONObject leavesObject = leavesArray.getJSONObject(i);
+                    String id = leavesObject.getString("id");
+                    leaves[i][0]=id;
+                    String categoryid = leavesObject.getJSONObject("leaveCategory").getString("id");
+                    leaves[i][1]=categoryid;
+                    String description = leavesObject.getJSONObject("leaveCategory").getString("description");
+                    leaves[i][2]=description;
+                    String unit = leavesObject.getJSONObject("leaveCategory").getString("unit");
+                    leaves[i][3]=unit;
+                    String kind = leavesObject.getJSONObject("leaveCategory").getString("kind");
+                    leaves[i][4]=kind;
+                    String org = leavesObject.getJSONObject("leaveCategory").getString("organization");
+                    leaves[i][5]=org;
+                    String organization = leavesObject.getString("organization");
+                    leaves[i][6]=organization;
+                    String created = leavesObject.getString("created");
+                    leaves[i][7]=created;
+                    String fromDate = leavesObject.getString("fromDate");
+                    leaves[i][8]=fromDate;
+                    String toDate = leavesObject.getString("toDate");
+                    leaves[i][9]=toDate;
+                    String duration = leavesObject.getString("duration");
+                    leaves[i][10]=duration;
+                    String status = leavesObject.getString("status");
+                    leaves[i][11]=status;
+
+            }
+
+            ldata=leaves;
+            return leaves;
+
+        }catch (JSONException e) {
+            Log.e(LOG_TAG, e.getMessage(), e);
+            e.printStackTrace();
+            return leaves;
+        }
+    } */
 
     @Override
     protected ArrayList<Leave> doInBackground(String... params) {
@@ -117,6 +164,11 @@ public class FetchLeavesTask extends AsyncTask<String,Void,ArrayList<Leave>> {
         }
         return null;
     }
+
+
+  /*  public String[][] getLeaves() {
+        return ldata;
+    } */
 
     @Override
     protected void onPostExecute(ArrayList<Leave> leaves) {

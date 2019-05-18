@@ -21,38 +21,80 @@
     <EditText android:id="@+id/leaveID"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="Leave ID..." />
+        android:hint="ID άδειας..." />
 
-    <EditText android:id="@+id/leaveCategoryID"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/leaveID"
-            android:hint="Leave Category..."/>
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Κατηγορία άδειας:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <EditText android:id="@+id/fromDate"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="Starting date..."/>
+    <Spinner
+    android:id="@+id/spinner1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:hint="Κατηγορία άδειας..."
+    android:entries="@array/leave_categories"
+    android:prompt="@string/leave_category" />
 
-    <EditText android:id="@+id/toDate"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ending date..."/>
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Διάστημα άδειας:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Ημερομηνία έναρξης..." />
+
+    <CalendarView
+        android:id="@+id/CalendarView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:firstDayOfWeek="2"
+        android:maxDate="01/01/2020"
+        android:minDate="01/01/2018" />
+
+
+    <CheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ημερομηνία λήξης..."
+        android:layout_centerHorizontal="true" />
+
+    <CalendarView
+        android:id="@+id/CalendarView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:firstDayOfWeek="2"
+        android:maxDate="01/01/2020"
+        android:minDate="01/01/2018"
+        />
 
     <EditText android:id="@+id/duration"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Duration..."/>
-
+            android:hint="Διάρκεια..."/>
 
 
     <Button
         android:id="@+id/btnSend"
-        android:text="Send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:onClick="send"/>
+        android:onClick="send"
+        android:text="Υποβολή" />
 
     <TextView
         android:id="@+id/tvResult"
